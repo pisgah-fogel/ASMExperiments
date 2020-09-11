@@ -3,6 +3,7 @@
 	.globl max_of_three
 	.globl max_of_array
 	.globl str_to_int64
+	.globl sum_doubles
 	.text
 test_asm:
 	nop
@@ -47,4 +48,14 @@ loop_sti:
 
 	dec %rsi
 	jnz loop_sti
+	ret
+
+sum_doubles:
+	xorpd %xmm0, %xmm0
+	# Optional: if rsi == 0 quit
+loop_sd:
+	addsd (%rdi), %xmm0
+	add $8, %rdi
+	dec %rsi
+	jnz loop_sd
 	ret

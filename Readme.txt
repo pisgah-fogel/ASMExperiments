@@ -2,6 +2,7 @@ read battery status
 
 Nice assembler (64b intel) tutorial: https://cs.lmu.edu/~ray/notes/gasexamples/
 AMD 64 ABI reference: http://www.x86-64.org/documentation/abi.pdf
+SSE2 references: https://softpixel.com/~cwright/programming/simd/sse2.php
 
 Arguments (integers and pointers): rdi, rsi, rdx, rcx, r8, r9.
 For floating-point (float, double), xmm0, xmm1, xmm2, xmm3, xmm4, xmm5, xmm6, xmm7
