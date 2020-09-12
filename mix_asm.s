@@ -4,6 +4,7 @@
 	.globl max_of_array
 	.globl str_to_int64
 	.globl sum_doubles
+	.globl add_16_uchar
 	.text
 test_asm:
 	nop
@@ -59,3 +60,18 @@ loop_sd:
 	dec %rsi
 	jnz loop_sd
 	ret
+
+# result: rdi
+# a: rsi
+# b: rdx
+add_16_uchar:
+	movlpd (%rsi), %xmm0
+	movhpd 8(%rsi), %xmm0
+	movlpd (%rdx), %xmm1
+	movhpd 8(%rdx), %xmm1
+	paddsb %xmm1, %xmm0
+	movntdq %xmm0, (%rdi)
+	ret
+
+	.data
+count:	.quad	0
